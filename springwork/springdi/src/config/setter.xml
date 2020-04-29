@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 
+		<bean>을 생성할때 <constructor-args>엘리먼트가 없으면 기본생성자를 호출해서 객체를 생성한다
+		<property>에서 name속성에 정의한 dao
+		=> <property>에서 name속성에 정의한 dao의 첫 글자를 대문자로 변경하고
+		   set을 접두사로 추가한 메소드를 찾아서 호출
+		   ex) name 속성이 dao
+		   set + Dao
+	 -->
+	<bean id="dao" class="di.setter.basic.MemberDAO"/>
+	<bean id="insa" class="di.setter.basic.InsaImpl">
+		<property name="dao" ref="dao"/>
+	</bean>
+	
+	<bean id="dice" class="di.setter01.Dice"/>
+	<bean id="player" class="di.setter01.Player">
+		<property name="d" ref="dice"></property>
+	</bean>
+	
+	<bean id="logic" class="di.setter02.LogicImpl"/>
+	<!-- <bean id="service" class="di.setter02.ServiceImpl">
+		<property name="mylogic" ref="logic"></property>
+		<property name="name" value="name"></property>
+		<property name="msg" value="msg"></property>
+	</bean> -->
+	<bean id="service" class="di.setter02.ServiceImpl">
+		<property name="mylogic" ref="logic"></property>
+		<constructor-arg value="현빈"/>
+		<constructor-arg value="멋있다"/>
+	</bean>
+	
+</beans>

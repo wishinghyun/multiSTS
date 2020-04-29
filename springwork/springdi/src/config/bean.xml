@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- <bean id="sony" class="book.exam01.SonySpeaker"/>
+	<bean id="tv" class="book.exam01.SamsungTV">
+		<constructor-arg ref="sony"/>
+	</bean> -->
+	<bean id="speaker" class="book.exam.constructor.AppleSpeaker"/>
+	<bean id="tv" class="book.exam.constructor.LgTV">
+		<constructor-arg ref="speaker"/>
+	</bean>
+	
+	<bean id="mydao" class="di.constructor.basic.MemberDAO"/>
+	<bean id="insa" class="di.constructor.basic.InsaImpl">
+		<constructor-arg ref="mydao"/>
+	</bean>
+	
+	<bean id="mydice" class="di.constructor01.Dice"/>
+	<bean id="myplayer" class="di.constructor01.Player">
+		<constructor-arg ref="mydice"/>
+	</bean>
+	
+	<bean id="logic" class="di.constructor02.LogicImpl"/>
+	<bean id="service" class="di.constructor02.ServiceImpl">
+		<constructor-arg ref="logic"/>
+		<constructor-arg value="이민호"/>
+		<constructor-arg value="안녕"/>
+	</bean>
+	
+	<bean id="Mysql" class="di.constructor03.MysqlArticleDAO"/>
+	<bean id="Mgr" class="di.constructor03.WriteArticleMgr">
+		<constructor-arg ref="Mysql"/>
+	</bean>
+	
+</beans>
