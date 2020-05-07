@@ -28,11 +28,6 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return dao.read(prd_no);
 	}
-	
-	@Override
-	public List<ProductCommentDTO> comm(String prd_no) {
-		return dao.comm(prd_no);
-	}
 
 }
 

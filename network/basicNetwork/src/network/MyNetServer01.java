@@ -8,18 +8,16 @@ import java.net.Socket;
 public class MyNetServer01 {
 	public static void main(String[] args) {
 		try {
-			//클라이언트와 통신할 수 있도록 준비 - 생성
+			//클라이언트와 통신할 수 있도록 준비
 			ServerSocket server = new ServerSocket(12345);
-			System.out.println("서버준비완료......클라이언트의 접속을 기다림");
+			System.out.println("서버준비완료....클라이언트의 접속을 기다림");
 			//클라이언트가 접속할때까지 대기
 			//클라이언트가 접속하면 접속한 클라이언트의 소켓객체를 리턴
 			Socket client = server.accept();
-			/*
-			client.getInetAddress().getHostAddress() 풀어쓰면
 			InetAddress clientInfo = client.getInetAddress();
-			clientInfo.getHostAddress();*/
-			System.out.println("접속한 클라이언트 : "+
-								client.getInetAddress().getHostAddress());
+			
+			System.out.println("접속한 클라이언트:"+
+					clientInfo.getHostAddress());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

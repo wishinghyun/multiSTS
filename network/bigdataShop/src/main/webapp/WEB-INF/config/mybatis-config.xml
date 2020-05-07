@@ -9,8 +9,6 @@
 		
 		<typeAlias type="kr.multi.bigdataShop.board.BoardDTO"
 			alias="board"/>
-			<typeAlias type="kr.multi.bigdataShop.product.comment.ProductCommentDTO"
-			alias="productcomment"/>
 		<!-- <typeAlias type="kr.multi.bigdataShop.member.MemberDTO" 
 		alias="member"/>
 		<typeAlias type="kr.multi.bigdataShop.member.login.LoginDTO" 
@@ -19,7 +17,6 @@
 	<mappers>
 		<mapper resource="mapper/board.xml"/>
 		<mapper resource="mapper/product.xml"/>
-		<mapper resource="mapper/productcomment.xml"/>
 		<!-- <mapper resource="mapper/member.xml"/>
 		<mapper resource="mapper/login.xml"/> -->
 	</mappers>

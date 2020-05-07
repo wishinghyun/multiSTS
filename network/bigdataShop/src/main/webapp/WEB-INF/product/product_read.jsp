@@ -264,7 +264,7 @@ A.info:hover {
 		<form method="post" 
 				action="/bigdataShop/comment/write.do">
 				<input type="hidden" name="prd_no" 
-					value="${product.prd_no}"/>
+					value="${product.prd_no }"/>
 				<!-- 세션에 있는 로그인 아이디 정보를 꺼내서 넣어야 하나 임의로 
 				   바꿔가며 테스트 한다. -->
 				<input type="hidden" name="mem_id" 	value="lee"/>

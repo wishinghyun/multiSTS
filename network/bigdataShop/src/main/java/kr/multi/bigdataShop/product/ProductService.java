@@ -7,5 +7,4 @@ public interface ProductService {
 	List<ProductDTO> hitproduct();
 	List<ProductDTO> newproduct();
 	ProductDTO read(String prd_no);
-	List<ProductCommentDTO> comm(String prd_no);
 }

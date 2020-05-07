@@ -1,14 +1,14 @@
 package single.console.chat;
-//서버에서 클라이언트로 데이터를 전송하는 작업을 수행하는 쓰레드
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+//서버에서 클라이언트로 데이터를 전송하는 작업을 수행하는 쓰레드 
 public class ServerSenderThread extends Thread{
 	Socket socket;
-
 	public ServerSenderThread(Socket socket) {
 		super();
 		this.socket = socket;
@@ -21,8 +21,8 @@ public class ServerSenderThread extends Thread{
 		try {
 			out = new PrintWriter(socket.getOutputStream(),true);
 			keyin = new BufferedReader(
-					new InputStreamReader(System.in));
-			String sendMsg = "";
+						new InputStreamReader(System.in));
+			String sendMsg = ""; //클라이언트로 보낼 메시지
 			while(true) {
 				sendMsg = keyin.readLine();
 				if(sendMsg==null) {
@@ -31,8 +31,19 @@ public class ServerSenderThread extends Thread{
 				out.println(sendMsg);
 			}
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
-
+	
 }
+
+
+
+
+
+
+
+
+

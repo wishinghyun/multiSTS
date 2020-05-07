@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 //URL클래스
-// => 인터넷에서 확인할 수 있는 자원을 추출
+//=> 인터넷에서 확인할 수 있는 자원을 추출
 public class URLTest01 {
 	public static void main(String[] args) {
 		try {
@@ -20,25 +20,41 @@ public class URLTest01 {
 			//-1포트로 접속했다는 의미가 아니라 http의 기본 포트가 80port
 			//우리가 접속한 url이 기본 포트를 사용하고 있다는 의미
 			System.out.println("url.getPort()=>"+url.getPort());
-			System.out.println("url.getProtocol()=>"+url.getProtocol());
+			System.out.println("url.getProtocol()=>"+
+									url.getProtocol());
 			System.out.println("url.getFile()=>"+url.getFile());
 			
-			//지정한 url에서 자원을 읽어오기 - 바이트 단위로 가져오기 때문에 한글 깨짐
-			//!!Reader의 하위 클래스를 추가해서 읽어오기 - 이미지, 동영상...
-			InputStream data = url.openStream();
+			//지정한 url에서 자원을 읽어오기 - 한글이 깨진다.
+			//Reader의 하위 클래스를 추가해서 읽어오기 - 이미지, 동영상...
+			/*InputStream data =  url.openStream();
 			InputStreamReader isr = new InputStreamReader(data);
-			BufferedReader br = new BufferedReader(isr);
+			BufferedReader br = new BufferedReader(isr);*/
+			BufferedReader br =
+					new BufferedReader(
+						new InputStreamReader(url.openStream()));
 			while(true) {
 				String data_byte = br.readLine();
-				if(data_byte==null) {
-					break;
+				if(data_byte==null) { //스트림의 끝을 만나면
+					break;           //while을 빠져나가기
 				}
 				System.out.println(data_byte);
 			}
-		} catch (MalformedURLException e) {//내가 입력한 주소의 형식이 잘못됐을때 발생하는 에러
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

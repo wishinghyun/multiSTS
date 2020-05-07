@@ -17,8 +17,25 @@ public class ProductDTO {
 	public String reg_id;
 	public String reg_dtm;
 	
-	public ProductDTO() {
+	public ProductDTO(){
+		
+	}
 	
+	@Override
+	public String toString() {
+		return "ProductDTO [prd_no=" + prd_no + ", prd_nm=" + prd_nm + ", category_no=" + category_no + ", prd_des="
+				+ prd_des + ", sell_prc_unit=" + sell_prc_unit + ", sell_start_dt=" + sell_start_dt + ", sell_end_dt="
+				+ sell_end_dt + ", dlv_constraint=" + dlv_constraint + ", as_flg=" + as_flg + ", return_flg="
+				+ return_flg + ", img_org_file_nm=" + img_org_file_nm + ", img_gen_file_nm=" + img_gen_file_nm
+				+ ", reg_id=" + reg_id + ", reg_dtm=" + reg_dtm + "]";
+	}
+
+	
+	public ProductDTO(String prd_no, String prd_nm, String img_gen_file_nm) {
+		super();
+		this.prd_no = prd_no;
+		this.prd_nm = prd_nm;
+		this.img_gen_file_nm = img_gen_file_nm;
 	}
 
 	public ProductDTO(String prd_no, String prd_nm, String category_no, String prd_des, int sell_prc_unit,
@@ -152,5 +169,4 @@ public class ProductDTO {
 	public void setReg_dtm(String reg_dtm) {
 		this.reg_dtm = reg_dtm;
 	}
-	
 }

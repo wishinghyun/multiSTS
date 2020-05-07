@@ -40,10 +40,6 @@ public class ProductDAOImpl implements ProductDAO {
 		return 
 		sqlSession.selectOne("kr.multi.bigdataShop.product.read",prd_no);
 	}
-	@Override
-	public List<ProductCommentDTO> comm(String prd_no) {
-		return sqlSession.selectList("bigdatashop.product.comment.selectcomment", prd_no);
-	}
 
 }
 
